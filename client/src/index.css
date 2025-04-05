@@ -1,0 +1,10 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+body {
+  @apply bg-blue-400;
+  background-image: url('https://www.heropatterns.com/static/78d1f6fbd5d08be9d1108b137d385bc1/5e49a/topography.svg');
+  background-size: cover;
+}
