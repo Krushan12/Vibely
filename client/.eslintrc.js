@@ -23,6 +23,12 @@ module.exports = {
       'react',
     ],
     rules: {
+      "import/order": 0,
+      "react/function-component-definition": 0,
+      "quotes": [1, "single"], // change to warning
+      "eol-last": 0,
+      "comma-dangle": 0,
+      "react/button-has-type": 0,
       "import/extensions": 0,
       "react/prop-types": 0,
       "linebreak-style": 0,
