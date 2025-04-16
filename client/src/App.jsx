@@ -10,7 +10,7 @@ const App = () => {
 
   const fetchPosts = async () => {
     try {
-      const { data } = await axios.get('http://localhost:5000/posts');
+      const { data } = await axios.get('https://vibely-93ba.onrender.com/posts');
       setPosts(data);
     } catch (error) {
       console.error("Failed to fetch posts", error);

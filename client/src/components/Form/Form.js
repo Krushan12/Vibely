@@ -15,7 +15,7 @@ const Form = ({ currentId, setCurrentId, refreshPosts }) => {
     if (!currentId) return;
 
     const fetchPost = async () => {
-      const response = await fetch(`http://localhost:5000/posts/${currentId}`);
+      const response = await fetch(`https://vibely-93ba.onrender.com/posts/${currentId}`);
       const data = await response.json();
       setPostData(data);
     };
