@@ -7,7 +7,7 @@ import { FiCamera } from 'react-icons/fi';
 // Configure axios defaults
 axios.defaults.baseURL = 'https://vibely-93ba.onrender.com';
 axios.defaults.headers.common['Content-Type'] = 'application/json';
-axios.defaults.headers.common['Accept'] = 'application/json';
+axios.defaults.headers.common.Accept = 'application/json'; // Fixed dot notation
 
 const App = () => {
   const [posts, setPosts] = useState([]);

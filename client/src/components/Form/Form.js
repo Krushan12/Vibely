@@ -49,8 +49,9 @@ const Form = ({ currentId, setCurrentId, refreshPosts }) => {
         </h2>
         
         <div className="space-y-2">
-          <label className="block text-sm font-medium text-gray-300">Creator</label>
+          <label htmlFor="creator" className="block text-sm font-medium text-gray-300">Creator</label>
           <input
+            id="creator"
             type="text"
             placeholder="Your name"
             value={postData.creator}
@@ -60,8 +61,9 @@ const Form = ({ currentId, setCurrentId, refreshPosts }) => {
         </div>
         
         <div className="space-y-2">
-          <label className="block text-sm font-medium text-gray-300">Title</label>
+          <label htmlFor="title" className="block text-sm font-medium text-gray-300">Title</label>
           <input
+            id="title"
             type="text"
             placeholder="Memory title"
             value={postData.title}
@@ -71,8 +73,9 @@ const Form = ({ currentId, setCurrentId, refreshPosts }) => {
         </div>
         
         <div className="space-y-2">
-          <label className="block text-sm font-medium text-gray-300">Message</label>
+          <label htmlFor="message" className="block text-sm font-medium text-gray-300">Message</label>
           <textarea
+            id="message"
             rows="3"
             placeholder="Your memory description"
             value={postData.message}
@@ -82,8 +85,9 @@ const Form = ({ currentId, setCurrentId, refreshPosts }) => {
         </div>
         
         <div className="space-y-2">
-          <label className="block text-sm font-medium text-gray-300">Tags</label>
+          <label htmlFor="tags" className="block text-sm font-medium text-gray-300">Tags</label>
           <input
+            id="tags"
             type="text"
             placeholder="comma,separated,tags"
             value={postData.tags}
@@ -93,9 +97,10 @@ const Form = ({ currentId, setCurrentId, refreshPosts }) => {
         </div>
         
         <div className="space-y-2">
-          <label className="block text-sm font-medium text-gray-300">Image</label>
+          <label htmlFor="image-upload" className="block text-sm font-medium text-gray-300">Image</label>
           <div className="flex items-center justify-center w-full bg-gray-700 border-2 border-dashed border-gray-600 rounded-lg p-4">
             <FileBase
+              id="image-upload"
               type="file"
               multiple={false}
               onDone={({ base64 }) => setPostData({ ...postData, selectedFile: base64 })}
