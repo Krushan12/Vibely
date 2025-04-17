@@ -47,7 +47,6 @@ const Form = ({ currentId, setCurrentId, refreshPosts }) => {
         <h2 className="text-xl font-bold text-indigo-400">
           {currentId ? 'Edit Memory' : 'Create Memory'}
         </h2>
-        
         <div className="space-y-2">
           <label htmlFor="creator" className="block text-sm font-medium text-gray-300">Creator</label>
           <input
@@ -59,7 +58,6 @@ const Form = ({ currentId, setCurrentId, refreshPosts }) => {
             className="w-full bg-gray-700 border border-gray-600 rounded-lg px-4 py-2 text-gray-100 focus:ring-2 focus:ring-indigo-500 focus:border-transparent"
           />
         </div>
-        
         <div className="space-y-2">
           <label htmlFor="title" className="block text-sm font-medium text-gray-300">Title</label>
           <input
@@ -71,7 +69,6 @@ const Form = ({ currentId, setCurrentId, refreshPosts }) => {
             className="w-full bg-gray-700 border border-gray-600 rounded-lg px-4 py-2 text-gray-100 focus:ring-2 focus:ring-indigo-500 focus:border-transparent"
           />
         </div>
-        
         <div className="space-y-2">
           <label htmlFor="message" className="block text-sm font-medium text-gray-300">Message</label>
           <textarea
@@ -83,7 +80,6 @@ const Form = ({ currentId, setCurrentId, refreshPosts }) => {
             className="w-full bg-gray-700 border border-gray-600 rounded-lg px-4 py-2 text-gray-100 focus:ring-2 focus:ring-indigo-500 focus:border-transparent"
           />
         </div>
-        
         <div className="space-y-2">
           <label htmlFor="tags" className="block text-sm font-medium text-gray-300">Tags</label>
           <input
@@ -95,7 +91,6 @@ const Form = ({ currentId, setCurrentId, refreshPosts }) => {
             className="w-full bg-gray-700 border border-gray-600 rounded-lg px-4 py-2 text-gray-100 focus:ring-2 focus:ring-indigo-500 focus:border-transparent"
           />
         </div>
-        
         <div className="space-y-2">
           <label htmlFor="image-upload" className="block text-sm font-medium text-gray-300">Image</label>
           <div className="flex items-center justify-center w-full bg-gray-700 border-2 border-dashed border-gray-600 rounded-lg p-4">
@@ -108,7 +103,6 @@ const Form = ({ currentId, setCurrentId, refreshPosts }) => {
             />
           </div>
         </div>
-        
         <div className="flex space-x-3 pt-2">
           <button
             type="submit"

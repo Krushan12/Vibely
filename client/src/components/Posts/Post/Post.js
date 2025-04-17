@@ -36,7 +36,6 @@ const Post = ({ post, setCurrentId }) => {
           </button>
         </div>
       </div>
-      
       <div className="p-5">
         <div className="flex flex-wrap gap-2 mb-3">
           {post.tags.map((tag, index) => (
@@ -45,10 +44,8 @@ const Post = ({ post, setCurrentId }) => {
             </span>
           ))}
         </div>
-        
         <h2 className="text-xl font-bold text-white mb-2">{post.title}</h2>
         <p className="text-gray-300 mb-4">{post.message}</p>
-        
         <div className="flex justify-between items-center border-t border-gray-700 pt-4">
           <button
             onClick={handleLike}
