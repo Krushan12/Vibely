@@ -42,44 +42,83 @@ const Form = ({ currentId, setCurrentId, refreshPosts }) => {
   };
 
   return (
-    <div className="bg-white p-6 rounded-lg shadow">
+    <div className="bg-gray-800 p-6 rounded-xl shadow-lg border border-gray-700">
       <form onSubmit={handleSubmit} className="flex flex-col gap-4">
-        <h2 className="text-xl font-semibold">{currentId ? 'Edit Memory' : 'Create Memory'}</h2>
-        <input
-          type="text"
-          placeholder="Creator"
-          value={postData.creator}
-          onChange={(e) => setPostData({ ...postData, creator: e.target.value })}
-          className="border p-2 rounded"
-        />
-        <input
-          type="text"
-          placeholder="Title"
-          value={postData.title}
-          onChange={(e) => setPostData({ ...postData, title: e.target.value })}
-          className="border p-2 rounded"
-        />
-        <textarea
-          rows="3"
-          placeholder="Message"
-          value={postData.message}
-          onChange={(e) => setPostData({ ...postData, message: e.target.value })}
-          className="border p-2 rounded"
-        />
-        <input
-          type="text"
-          placeholder="Tags (comma separated)"
-          value={postData.tags}
-          onChange={(e) => setPostData({ ...postData, tags: e.target.value.split(',') })}
-          className="border p-2 rounded"
-        />
-        <FileBase
-          type="file"
-          multiple={false}
-          onDone={({ base64 }) => setPostData({ ...postData, selectedFile: base64 })}
-        />
-        <button type="submit" className="bg-blue-500 text-white p-2 rounded">Submit</button>
-        <button type="button" onClick={clear} className="bg-gray-300 p-2 rounded">Clear</button>
+        <h2 className="text-xl font-bold text-indigo-400">
+          {currentId ? 'Edit Memory' : 'Create Memory'}
+        </h2>
+        
+        <div className="space-y-2">
+          <label className="block text-sm font-medium text-gray-300">Creator</label>
+          <input
+            type="text"
+            placeholder="Your name"
+            value={postData.creator}
+            onChange={(e) => setPostData({ ...postData, creator: e.target.value })}
+            className="w-full bg-gray-700 border border-gray-600 rounded-lg px-4 py-2 text-gray-100 focus:ring-2 focus:ring-indigo-500 focus:border-transparent"
+          />
+        </div>
+        
+        <div className="space-y-2">
+          <label className="block text-sm font-medium text-gray-300">Title</label>
+          <input
+            type="text"
+            placeholder="Memory title"
+            value={postData.title}
+            onChange={(e) => setPostData({ ...postData, title: e.target.value })}
+            className="w-full bg-gray-700 border border-gray-600 rounded-lg px-4 py-2 text-gray-100 focus:ring-2 focus:ring-indigo-500 focus:border-transparent"
+          />
+        </div>
+        
+        <div className="space-y-2">
+          <label className="block text-sm font-medium text-gray-300">Message</label>
+          <textarea
+            rows="3"
+            placeholder="Your memory description"
+            value={postData.message}
+            onChange={(e) => setPostData({ ...postData, message: e.target.value })}
+            className="w-full bg-gray-700 border border-gray-600 rounded-lg px-4 py-2 text-gray-100 focus:ring-2 focus:ring-indigo-500 focus:border-transparent"
+          />
+        </div>
+        
+        <div className="space-y-2">
+          <label className="block text-sm font-medium text-gray-300">Tags</label>
+          <input
+            type="text"
+            placeholder="comma,separated,tags"
+            value={postData.tags}
+            onChange={(e) => setPostData({ ...postData, tags: e.target.value.split(',') })}
+            className="w-full bg-gray-700 border border-gray-600 rounded-lg px-4 py-2 text-gray-100 focus:ring-2 focus:ring-indigo-500 focus:border-transparent"
+          />
+        </div>
+        
+        <div className="space-y-2">
+          <label className="block text-sm font-medium text-gray-300">Image</label>
+          <div className="flex items-center justify-center w-full bg-gray-700 border-2 border-dashed border-gray-600 rounded-lg p-4">
+            <FileBase
+              type="file"
+              multiple={false}
+              onDone={({ base64 }) => setPostData({ ...postData, selectedFile: base64 })}
+              className="text-gray-300 text-sm"
+            />
+          </div>
+        </div>
+        
+        <div className="flex space-x-3 pt-2">
+          <button
+            type="submit"
+            className="flex-1 bg-gradient-to-r from-indigo-500 to-purple-600 hover:from-indigo-600 hover:to-purple-700 text-white font-medium py-2 px-4 rounded-lg transition duration-200"
+          >
+            {currentId ? 'Update' : 'Create'}
+          </button>
+          <button
+            type="button"
+            onClick={clear}
+            className="flex-1 bg-gray-700 hover:bg-gray-600 text-gray-200 font-medium py-2 px-4 rounded-lg border border-gray-600 transition duration-200"
+          >
+            Clear
+          </button>
+        </div>
       </form>
     </div>
   );
