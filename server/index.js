@@ -12,8 +12,14 @@ app.use(bodyParser.json({ limit: '30mb', extended: true }));
 app.use(bodyParser.urlencoded({ limit: '30mb', extended: true }));
 
 app.use(cors({
-  origin: "https://vibely-liart.vercel.app",
+  origin: [
+    'https://vibely-liart.vercel.app', 
+    'http://localhost:3000',
+    'https://vibely-93ba.onrender.com' 
+  ],
   credentials: true,
+  methods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE', 'OPTIONS'],
+  allowedHeaders: ['Content-Type', 'Authorization']
 }));
 
 app.use('/posts', postRoutes);

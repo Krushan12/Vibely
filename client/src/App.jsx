@@ -7,7 +7,8 @@ import { FiCamera } from 'react-icons/fi';
 // Configure axios defaults
 axios.defaults.baseURL = 'https://vibely-93ba.onrender.com';
 axios.defaults.headers.common['Content-Type'] = 'application/json';
-axios.defaults.headers.common.Accept = 'application/json'; // Fixed dot notation
+axios.defaults.headers.common.Accept = 'application/json';
+axios.defaults.withCredentials = true; // Add credentials support
 
 const App = () => {
   const [posts, setPosts] = useState([]);
@@ -19,14 +20,10 @@ const App = () => {
     setLoading(true);
     setError(null);
     try {
-      const { data } = await axios.get('/posts', {
-        headers: {
-          'Access-Control-Allow-Origin': '*',
-        },
-      });
+      // Remove the custom CORS header, it won't work from client-side
+      const { data } = await axios.get('/posts');
       setPosts(data);
     } catch (err) {
-      console.error("Failed to fetch posts", err);
       setError(err.message || 'Failed to fetch posts');
     } finally {
       setLoading(false);
@@ -35,7 +32,7 @@ const App = () => {
 
   useEffect(() => {
     fetchPosts();
-  }, [currentId]);
+  }, []); // Remove currentId dependency, we'll handle refreshes manually
 
   return (
     <div className="min-h-screen bg-gray-900 text-gray-100">
@@ -70,7 +67,7 @@ const App = () => {
 
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
           <div className="lg:col-span-2">
-            <Posts posts={posts} setCurrentId={setCurrentId} />
+            <Posts posts={posts} setCurrentId={setCurrentId} refreshPosts={fetchPosts} />
           </div>
           <div className="lg:sticky lg:top-8 lg:h-fit">
             <Form currentId={currentId} setCurrentId={setCurrentId} refreshPosts={fetchPosts} />
